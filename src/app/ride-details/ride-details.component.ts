@@ -89,5 +89,6 @@ export class RideDetailsComponent implements OnInit {
   updateoutputdata()
   {
     this.outputdata.emit(true)
+  
   }
 }

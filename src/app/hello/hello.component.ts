@@ -17,7 +17,7 @@ export class HelloComponent implements OnInit {
   courseName:string="angular";
   lol:string;
   age:number=9;
-  name: string = "kbsdbkudkud";
+
   strong:string;
   name1:string;
   name2:string;
