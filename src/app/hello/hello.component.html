@@ -1,0 +1,26 @@
+<h1> Welcome </h1>
+<h2> Course Name: {{ courseName }}</h2>
+<p (click)="changeName()">Click here to change</p>
+
+
+<input #uName placeholder="Enter your username">
+<!-- lots of other elements -->
+<!-- uName refers to the input element; pass its 'value to an event handler -->
+<button (click)="showUser(uName.value)">Show</button>
+
+<br/>
+<br/>
+
+<input type="text" #a (input)="lolz(a.value)">
+<br/>
+
+    {{lol}}
+
+    <input type="text" [(ngModel)]="name"> <br/>
+<div>Hello , {{ name }}</div>
+
+
+
+<input type="number" #v >
+<button class="btn btn-primary" (click)="agez(v.value)">click here</button>
+{{a}}
