@@ -1,0 +1,75 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.js"></script>
+</head>
+
+<body>
+
+  
+    <br>
+    <br>
+
+    <div class="container-fluid" *ngIf="!bookride">
+        <div class="row">
+            <div class="col-md-4 offset-4 col-lg-4 offset-4 col-sm-6 offset-2">
+                <div class="card border-primary">
+                    <div class="card-header bg-primary">
+                        <h5 class="text-white">Login</h5>
+                    </div>
+
+                    <div class="card-body">
+                        <form [formGroup]="Login" (ngSubmit)="submitted=true">
+                            <div class="form-group">
+                                <label class="form-label">UserName</label>
+                                <input class="form-control" type="text" formControlName="username">
+                                <span *ngIf="Login.controls.username.errors" class=" text-danger">
+                                    <p class="text text-danger">Username is required<p>
+                                </span>
+
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Password</label>
+                                <input class="form-control" type="password" formControlName="pass">
+                                <span *ngIf="Login.controls.pass.errors" class="text text-danger">
+                                    Password is required
+                                </span>
+                            </div>
+                        </form>
+                        <div *ngIf="submitted">
+                            <p class="text text-danger" *ngIf="errormessage">
+                                {{errormessage}}
+                            </p>
+
+                            <p class="text text-success" *ngIf="successmessage">
+
+                            </p>
+                        </div>
+                    </div>
+
+
+
+                    <div class="card-footer">
+
+                        <button class="btn btn-primary"
+                            (click)="check(Login.controls.username.value,Login.controls.pass.value);submitted=true"
+                            [disabled]="!Login.valid" type="submit">Login</button>
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div *ngIf='bookride'>
+      
+        <router-outlet>
+
+        </router-outlet>
+    </div>
+</body>
+
+</html>

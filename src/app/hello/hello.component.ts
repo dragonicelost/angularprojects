@@ -18,6 +18,9 @@ export class HelloComponent implements OnInit {
   lol:string;
   age:number=9;
   name: string = "kbsdbkudkud";
+  strong:string;
+  name1:string;
+  name2:string;
  changeName() {
     this.courseName="react";
   }
@@ -38,5 +41,14 @@ export class HelloComponent implements OnInit {
    let temp:number= 2020-n;
   //  console.log(temp);
    this.age=temp;
+  }
+  check(name:string)
+  {
+    if(name==undefined||name.trim()=="")
+    {this.strong=undefined;}
+    if(name.length>=7)
+    {this.strong="strong pass"}
+    else
+    {this.strong="weak pass"}
   }
 }

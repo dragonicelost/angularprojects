@@ -1,0 +1,114 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.js"></script>
+</head>
+
+<body>
+
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10 offset-1 col-lg-10 offset-1 col-sm-10 offset-1 col-xm-10 offset-1">
+                <div class="card border-primary text-center">
+
+                    <div class="card-header bg-primary">
+                        <h5 class="text-white">Book a Ride</h5>
+                    </div>
+
+
+                    <div class="card-body ">
+                        <p class="text-secondary ">
+                            In it except to so temper mutual tastes mother. Interested cultivated its continuing now yet
+                            are. Out interested acceptance our partiality affronting unpleasant why add. Esteem garden
+                            men yet shy course. Consulted up my tolerably sometimes perpetual oh. Expression acceptance
+                            imprudence particular had eat unsatiable.
+
+                        </p>
+                        <br />
+                        <div *ngIf="!clicked ">
+                            <button class="btn btn-primary text-white" (click)="showall=true;clicked=true">
+                                Show All Rides
+                            </button>
+
+                            <br />
+                            <br />
+                            <a [routerLink]="['/offer-ride']">
+                                <button class="btn btn-primary text-white">
+                                    Offer a Ride
+                                </button>
+                            </a>
+                        </div>
+                        <div *ngIf="showall">
+
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-primary" (click)="check('togotham');sorted=true">To
+                                    Gotham</button>
+                                <button type="button" class="btn btn-primary ml-1 mr-1"
+                                    (click)="check('fromgotham');sorted=true">From Gotham</button>
+                                <button type="button" class="btn btn-primary "
+                                    (click)="check('all');sorted=true">Others</button>
+                            </div>
+                            <br />
+                            <br />
+                            <a class="text-primary pt-2 pb-2">
+                                Please select a ride
+                            </a>
+
+                            <div *ngIf="!hidetable" class="table-responsive ">
+                                <table class="table table-bordered  table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-white bg-primary">Start Point</th>
+                                            <th class="text-white bg-primary">End Point</th>
+                                            <th class="text-white bg-primary">Seat Available</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let arres of array | rideFilterPipe:dest"
+                                            (click)="ridesdetails=true;data=arres.start">
+                                            <td>{{arres.start}}</td>
+                                            <td>{{arres.end}}</td>
+                                            <td>{{arres.seats}}</td>
+                                        </tr>
+
+                                    </tbody>
+
+
+                                </table>
+                            </div>
+
+                            <div *ngIf="ridesdetails">
+                                <app-ride-details [data]="data" (outputdata)="hidetablefunc()"></app-ride-details>
+                            </div>
+                            <a [routerLink]="['/offer-ride']">
+
+                                <button class="btn btn-primary mt-2">
+                                    Offers Ride
+                                </button>
+                            </a>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!--  {{66600 | currency :'INR' :'symbol' :'6.2-3'}} -->
+
+</body>
+
+</html>

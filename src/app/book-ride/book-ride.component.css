@@ -1,0 +1,10 @@
+tr:hover {
+    background-color:rgb(5, 190, 252);
+    cursor:'pointer';
+}
+
+tr:hover td {
+    background-color: transparent; 
+    cursor:'pointer';
+}
+

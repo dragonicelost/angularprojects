@@ -1,0 +1,108 @@
+<html>
+
+<head>
+
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.js"></script>
+</head>
+<div class="container container-fluid">
+    <div class="row ">
+        <div class="col-md-10 offset-1 col-lg-10 offset-1">
+            <div class="card  border-primary">
+
+                <div class="card-header bg-primary ">
+                    Card Ride Regsitartion form
+
+                </div>
+
+                <div class="card-body">
+                    <form [formGroup]="Registration" (ngSubmit)="submitted=true;check()">
+                        <div class="form-group">
+                            <label class="form-label text font-weight-bold" for="uName">
+                                Name
+                            </label>
+                            <input id="uName"  type="text" class="form-control" formControlName="name" >
+
+                            <div *ngIf="!Registration.controls.name.valid  || Registration.controls.name.pristine">
+                                <p class="alert alert-danger">
+                                    Field Required
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label text font-weight-bold">
+                                Start Location
+                            </label>
+                            <input type="text" class="form-control" formControlName="Slocation">
+                            <div *ngIf="!Registration.controls.Slocation.valid">
+                                <p class="alert alert-danger">
+                                    Field Required
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label text font-weight-bold">
+                                Destination
+                            </label>
+                            <input type="text" class="form-control" formControlName="destination">
+                            <div *ngIf="!Registration.controls.destination.valid">
+                                <p class="alert alert-danger">
+                                    Field Required
+                                </p>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label text font-weight-bold">
+                                Car Name
+                            </label>
+                            <input type="text" class="form-control" formControlName="carname">
+                            <div *ngIf="!Registration.controls.carname.valid">
+                                <p class="alert alert-danger">
+                                    Field Required
+                                </p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label text font-weight-bold">
+                                Seats Available
+                            </label>
+                            <input type="number" class="form-control" formControlName="seatsava">
+
+                            <div *ngIf="!Registration.controls.seatsava.valid">
+                                <p class="alert alert-danger">
+                                    Should greater than 0 and less than 8
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="btn-group" role="group">
+
+                     <div class="mr-1">
+                        <button type="submit" class="btn btn-primary ">
+                            Submit
+                        </button>
+                    </div>
+                    <div>
+                        <a [routerLink]="['/book-ride']">
+                        <button type="button" class="btn btn-primary">
+                            Go Back
+                        </button>
+                    </a>
+                </div>
+                </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+</div>
+
+</html>

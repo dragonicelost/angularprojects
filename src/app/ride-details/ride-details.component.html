@@ -1,0 +1,103 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid" *ngIf="!GoBack">
+        <!-- <div class="row"> -->
+        <div class="col-md-12  col-lg-12  col-sm-12  col-xm-12">
+            <div class="card border-primary text-center">
+
+                <div class="card-header bg-primary">
+                    <h5 class="text-white">Ride Details</h5>
+                </div>
+
+                <div class="card-body">
+
+                    <div class="table table-responsive">
+                        <table class="table table-bordered  table-sm">
+                            <tr class="text-white">
+                                <th class="bg-primary text-white">
+                                    ID
+                                </th>
+                                <th class="bg-primary text-white">
+                                    NAME
+                                </th>
+                                <th class="bg-primary text-white">
+                                    CAR
+                                </th>
+                                <th class="bg-primary text-white">
+                                    SEATS LEFT
+                                </th>
+                                <th class="bg-primary text-white">
+                                    DESTINATION
+                                </th>
+                            </tr>
+                            <tr *ngFor="let arr of output">
+                                <td>{{arr.id}}</td>
+                                <td>{{arr.name}}</td>
+                                <td>{{arr.car}}</td>
+                                <td>{{arr.seats}}</td>
+                                <td>{{arr.destination}}</td>
+
+                            </tr>
+                        </table>
+
+                    </div>
+                    <div *ngIf="!booked" class="btn-group" role="group">
+
+
+
+                        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                            <div class="btn-group mr-2" role="group" aria-label="First group">
+                                <button type="button" class="btn btn-primary text-center   mr-1 pr-auto"
+                                    (click)="update(output);updateoutputdata()">
+                                    Book
+                                </button>
+                            </div>
+                            <div class="btn-group mr-2" role="group" aria-label="Second group">
+                                <a [routerLink]="['/book-ride']">
+                                    <button type="button" class="btn btn-info text-center" (click)="GoBack=true">
+                                        Go Back
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div *ngIf="booked" class="text-center text-primary">
+                        {{message}}
+                        <br />
+                        <div class="btn-toolbar " role="toolbar" aria-label="Toolbar with button groups">
+                            <div class="btn-group mr-2 text-center" role="group" aria-label="First group">
+                                <button type="button" class="btn btn-danger text-center  ml-1 mr-1 pr-3">
+                                    Cancel Booking
+                                </button>
+                            </div>
+                            <div class="btn-group mr-2 text-center" role="group" aria-label="First group">
+                                <a [routerLink]="['/ride-details']">
+                                    <button type="button" class="btn btn-info text-center" (click)="GoBack=true">
+                                        Go Back
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- </div> -->
+    </div>
+
+
+
+</body>
+
+
+
+</html>
